@@ -321,7 +321,7 @@ def main(args=None, input=None, output=None):
 
     if not args.openai_api_key:
         args.openai_api_key = None
-        
+
         if os.name == "nt":
             io.tool_output(
                 "No OpenAI API key provided. Assuming you're using a free API endpoint, otherwise use --openai-api-key or setx OPENAI_API_KEY."
@@ -330,7 +330,6 @@ def main(args=None, input=None, output=None):
             io.tool_output(
                 "No OpenAI API key provided. Assuming you're using a free API endpoint, otherwise use --openai-api-key or export OPENAI_API_KEY."
             )
-        return 1
 
     main_model = models.Model(args.model)
 
