@@ -507,11 +507,16 @@ def run_test(
     show_fnames = ",".join(map(str, fnames))
     print("fnames:", show_fnames)
 
+    try:
+        openai_api_key = os.environ["OPENAI_API_KEY"]
+    except KeyError:
+        openai_api_key = None
+
     coder = Coder.create(
         main_model,
         edit_format,
         io,
-        os.environ["OPENAI_API_KEY"],
+        openai_api_key,
         fnames=fnames,
         use_git=False,
         stream=False,
